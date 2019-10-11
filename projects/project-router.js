@@ -67,7 +67,7 @@ router.post("/:id/tasks", validateProjectId, (req, res) => {
 
 // get resources from 1 project
 router.get("/:id/resources", validateProjectId, (req, res) => {
-  Projects.getResources(req.params.id)
+  Projects.getResourcesOfProject(req.params.id)
     .then(resources => {
       res.json(resources);
     })
@@ -78,7 +78,7 @@ router.get("/:id/resources", validateProjectId, (req, res) => {
 
 // add resource to a project
 router.post("/:id/resources", validateProjectId, (req, res) => {
-  Projects.addResource(req.body, req.params.id)
+  Projects.addResourceOfProject(req.body, req.params.id)
     .then(resource => {
       res.status(201).json(resource);
     })
