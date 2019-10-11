@@ -54,7 +54,8 @@ function addResourceOfProject(resourceData, project_id) {
   return db("resources")
     .insert(resourceData)
     .then(([resourceId]) => {
-      db("project_resource").insert({
+      console.log(resourceId);
+      return db("project_resource").insert({
         project_id: project_id,
         resource_id: resourceId,
       });
